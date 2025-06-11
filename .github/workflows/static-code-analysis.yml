@@ -41,6 +41,6 @@ jobs:
         ./sonar-scanner/bin/sonar-scanner \
           -Dsonar.projectKey=flask-by-example \
           -Dsonar.sources=. \
-          -Dsonar.host.url=http://<your-accessible-sonarqube-server> \
+          -Dsonar.host.url==${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
           -Dsonar.python.coverage.reportPaths=coverage.xml

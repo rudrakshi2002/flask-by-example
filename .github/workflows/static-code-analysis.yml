@@ -33,7 +33,7 @@ jobs:
         coverage run -m pytest
         coverage xml
 
-    - name: Run SonarQube Scanner
+        - name: Run SonarQube Scanner
       run: |
         wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
         unzip sonar-scanner-cli-5.0.1.3006-linux.zip
@@ -41,6 +41,7 @@ jobs:
         ./sonar-scanner/bin/sonar-scanner \
           -Dsonar.projectKey=flask-by-example \
           -Dsonar.sources=. \
-          -Dsonar.host.url==${{ secrets.SONAR_HOST_URL }} \
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
           -Dsonar.python.coverage.reportPaths=coverage.xml
+
